@@ -1,0 +1,150 @@
+<!-- Flower 1 - PayPal Button Integration -->
+<div class="flower1">
+    <span>Flower 1</span><br>
+    <img src="myFlower.jpg" alt=""><br>
+    <span>Amount $1.50</span>
+    <p><input type="checkbox" id="PayPal1" name="payment_method[]" value="PayPal"> PayPal</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="your-paypal-business-email@example.com">
+        <input type="hidden" name="item_name" value="Flower 1">
+        <input type="hidden" name="amount" value="1.50">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+        <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
+        <button type="submit" name="submit_flower1">Submit</button>
+    </form>
+</div>
+
+
+<!-- 
+// for javascript code -->
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+<div id="paypal-button-container"></div>
+
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '1.50'  // Amount for Flower 1
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Payment successful! ' + details.payer.name.given_name);
+                // Optionally, you can send payment details to your server for further processing
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
+
+
+
+<!-- FOR PHP -->
+const express = require('express');
+const axios = require('axios');
+const app = express();
+const PAYPAL_CLIENT_ID = 'YOUR_CLIENT_ID';
+const PAYPAL_SECRET_ID = 'YOUR_SECRET_ID';
+
+const PAYPAL_API_URL = 'https://api.sandbox.paypal.com'; // Change to live URL for production
+
+app.use(express.json());
+
+// Get PayPal access token
+async function getPaypalAccessToken() {
+    const auth = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_SECRET_ID}`).toString('base64');
+    const response = await axios.post(
+        `${PAYPAL_API_URL}/v1/oauth2/token`,
+        'grant_type=client_credentials',
+        {
+            headers: {
+                'Authorization': `Basic ${auth}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+    );
+    return response.data.access_token;
+}
+
+// Endpoint to create a payment order
+app.post('/create-order', async (req, res) => {
+    const accessToken = await getPaypalAccessToken();
+    const order = await axios.post(
+        `${PAYPAL_API_URL}/v2/checkout/orders`,
+        {
+            intent: 'CAPTURE',
+            purchase_units: [{
+                amount: {
+                    currency_code: 'USD',
+                    value: '1.50' // Amount for Flower 1
+                }
+            }]
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+    res.json(order.data);
+});
+
+// Endpoint to capture payment
+app.post('/capture-payment', async (req, res) => {
+    const accessToken = await getPaypalAccessToken();
+    const { orderId } = req.body;
+
+    const capture = await axios.post(
+        `${PAYPAL_API_URL}/v2/checkout/orders/${orderId}/capture`,
+        {},
+        {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+    res.json(capture.data);
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+<!-- JS -->
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return fetch('/create-order', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(orderData => {
+                return orderData.id;
+            });
+        },
+        onApprove: function(data, actions) {
+            return fetch(`/capture-payment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    orderId: data.orderID
+                })
+            })
+            .then(response => response.json())
+            .then(details => {
+                alert('Payment successful! ' + details.status);
+                // You can redirect or update the page based on payment status
+            });
+        }
+    }).render('#paypal-button-container');
+</script>

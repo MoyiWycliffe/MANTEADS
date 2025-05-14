@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Withdraw Status Page</title>
+ <link rel="stylesheet" href="withdraw_status.css">
+ <style>
+  table{
+   width:80%;
+   margin:auto;
+   border-collapse: collapse;
+  }
+  th,td{
+   border: 1px solid #dddddd;
+   padding: 10px; 
+   text-align: left;
+  }
+  a{
+   text-decoration: none;
+  }
+  th{
+   background-color: #dddddd;
+   color: black;
+   opacity: 100%;
+  }
+  tr:nth-child(even){
+   background-color: #f2f2f2;
+  }
+  tfoot{
+   text-align: center;
+  }
+  body{
+   background-color: rgb(85, 136, 133);
+   padding-bottom: 0.5cm;
+   padding-top: 0%;
+  }
+  h1{
+   font-size:2.5em;
+   text-align: center;
+   background-color: lightgrey;
+   border-color: red;
+   border: 2px solid red;
+   border-radius:5px;
+  }
+  
+ </style>
+</head>
+<body>
+ <header>
+   <nav class="navbar">
+  <ul type="none">
+   <li><a href="index.html">Home</a></li>
+   <li><a href="dashboard.php">Dashboard</a></li>
+   <li><a href="transctions.php">Transctions</a></li>
+   <li><a href="help.html">Support</a></li>
+   <li><a href="Logout.php">Log out</a></li>
+  </ul>
+ </nav>
+ <h1>WELCOME TO YOUR WITHDRAW STATUS PAGE</h1>
+
+ </header>
+ <div class="center-div">
+    <p>WITHDRAW AMOUNT IS:</p>
+    <P>YOU WITHDRAWN AT:</P>
+    <P>YOU WITHDRAW VIA:</P>
+    <P>PROCESS FEES DEDUCTED IS:</P>
+    <P>YOUR NEW WITHDRAW AMOUNT IS:</P>
+    <P>YOUR WITHDRAWAL STATUS IS: </P>
+    <p>YOUR TRANSACTION ID IS:</p>
+    <P>YOUR NEW BALANCE IS:</P>
+ </div>
+ <h2>Do You Need Help?Reach Us Through Email.<a href=mailto:manteads123@gmail.com>manteads123@gmail.com</a></h2>
+ <p>Thank you for using Manteads.</p>
+ <p>Depending on your payment method,the funds may take a few minutes to reflect in your account.If you experience delays,please <a href="mailto:manteads123@gmail.com">Email US.</a></p>
+ <P>NOTE:Withdrawal fees may apply based on the selected method.</P>
+ <div>
+  <table>
+   <caption>MANTEADS Transctions FEES.(Paypal And MPESA.)<b>MANTEADS HAS A FIXED FEES OF 10% OF USER WITHDRAWAL.</b></caption>
+   <tr>
+    <th>Payment Method</th>
+    <th>Fees</th>
+
+   </tr>
+   <tr>
+    <td>Paypal</td>
+    <td>0% Since no,Conversion charges</td>
+   </tr>
+   <tr>
+    <td>MPESA</td>
+    <td>0% since no conversion charges.</td>
+   </tr>
+   <tfoot>
+    <tr>
+     <td colspan="2"><b>*Fees are subject to change.Check Paypal and MPESA official websites for updates.</b></td>
+    </tr>
+   </tfoot>
+  </table>
+ 
+ </div>
+ <footer>
+  
+  <p id="P1"><a href="services.html">Services</a>| <a href="privacy.html">Privacy Policy</a></p>
+  <p id="P2">&copy; <?=date("Y");?>MANTEADS.All rights reserved.</p>
+ </footer>
+</body>
+</html>

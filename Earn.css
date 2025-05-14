@@ -1,0 +1,90 @@
+body{
+   margin: 0;
+   padding: 0;
+   background:linear-gradient(to bottom left,rgba(190, 189, 189, 0.5) 50%,rgba(174, 255, 0, 0.5) 50%) ;
+   max-width: 100vw;
+   letter-spacing: 1px;
+}
+.body{
+   padding: 0 5px;
+   width: 98vw;
+   max-width: 100vw;
+}
+
+
+h2{
+   background-color: greenyellow;
+   margin: 0 20px;
+   padding: 10px ;
+   text-align: center;
+}
+.paragraph{
+   margin: 0 5px;
+   background-color: rgba(208, 208, 254, 0.204);
+   padding: 10px;
+   margin: 3px;
+   border-radius: 6px;
+   box-shadow: 2px 0 7px rgb(150, 150, 250);
+}
+.paragraph p{
+   font-size:18px ;
+   max-width: 98%;
+   padding: 5px;
+}
+button{
+   background-color: rgb(5, 251, 5);
+   color: white;
+   padding: 15px;
+   font-size: 20px;
+   margin: 10px 20px;
+   border-radius: 3px;
+   border-width: 0;
+  
+}
+button a{
+   color: black;
+   text-decoration: none;
+}
+button:hover{
+   background-color: blue;
+}
+.Earnings{
+   background-color: rgba(213, 198, 213,0.4);
+   margin:0 3px;
+   padding-bottom: 20px;
+   border-radius: 10px;
+   box-shadow: 0 0 9px grey;
+   max-width: 90vw;
+}
+.heading3{
+   background-color: rgb(33, 36, 33);
+   padding: 10px;
+   color: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+   text-align: center;
+   max-width: 100%;
+   font-size: 2em;
+
+}
+.Explanations{
+   background-color: rgb(219, 219, 251);
+   padding: 20px;
+   margin: 3px;
+   border-radius: 6px;
+   box-shadow: 2px 0 7px rgb(136, 136, 241);
+}
+.surveys,.microtasks,.offerwalls{
+   background-color: rgb(219, 219, 251);
+   padding: 20px;
+   margin: 20px;
+   border-radius: 6px;
+   box-shadow: 2px 0 7px rgb(136, 136, 241);
+}
+.surveys h4{
+   font-size: 23px;
+}
+.surveys p,.microtasks p,.offerwalls p{
+   font-size: 18px;
+
+}

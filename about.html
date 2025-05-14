@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse thousands of jobs and apply online easily on MANTEADS platform.">
+    <meta name="author" content="MANTEADS">
+    <meta name="keywords" content="jobs, career, apply online, job search,Fill Surveys,Complete microtasks and offerwalls.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>About Us - Your Job Listing Website</title>
+    <link rel="stylesheet" href="About.css">
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li strong {
+    color: #2980b9;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.contact-us{
+    margin-bottom:100px;
+}
+footer {
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <section class="intro">
+        <h2>Welcome to MANTEADS - Your Gateway to the Future of Employment</h2>
+        <p>At MANTEADS, we are committed to bridging the gap between employers and job seekers across the globe. Our platform is designed with one clear goal in mind: to help talented individuals find meaningful careers while assisting organizations in finding the best talent for their needs.</p>
+    </section>
+
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>Our mission is simple: to empower individuals by connecting them with career opportunities and to provide employers with a robust tool to discover the most qualified candidates. Whether you are a job seeker looking to kickstart your career or an employer in search of top-tier talent, we provide the resources, support, and technology to ensure that your recruitment journey is seamless, efficient, and successful.</p>
+    </section>
+
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Global Reach:</strong> Our platform is accessible to job seekers and employers worldwide. No matter where you are, we provide access to job opportunities and talent from across the globe.</li>
+            <li><strong>Comprehensive Job Listings:</strong> We host a wide array of job listings in various industries, including technology, healthcare, finance, education, and more. Our platform caters to individuals at all stages of their careers – from entry-level roles to executive positions.</li>
+            <li><strong>User-Friendly Interface:</strong> We have designed our platform to be as intuitive as possible, making it easy for both job seekers and employers to navigate through listings, manage applications, and track hiring progress.</li>
+            <li><strong>Real-Time Updates:</strong> We offer up-to-date job listings, ensuring that job seekers can find the latest opportunities and employers can fill vacancies swiftly.</li>
+            <li><strong>Enhanced Job Matching Technology:</strong> Using advanced algorithms and AI, we match job seekers with positions that align closely with their skills and experience, while helping employers discover the best-fit candidates for their job openings.</li>
+        </ul>
+    </section>
+
+    <section class="our-values">
+        <h2>Our Values</h2>
+        <p>At MANTEADS, our core values are the foundation of everything we do. We strive for:</p>
+        <ul>
+            <li><strong>Integrity:</strong> We believe in honest, transparent communication and uphold the highest standards of ethical behavior.</li>
+            <li><strong>Innovation:</strong> We are continually evolving and adapting to the ever-changing job market by implementing cutting-edge technology to enhance user experience.</li>
+            <li><strong>Collaboration:</strong> We work closely with employers, job seekers, and partners to foster a thriving community of professionals.</li>
+            <li><strong>Diversity and Inclusion:</strong> We believe that a diverse workforce is a key driver of success. Our platform promotes equal opportunities for all, regardless of background, gender, or ethnicity.</li>
+        </ul>
+    </section>
+
+    <section class="our-team">
+        <h2>Our Team</h2>
+        <p>Our team consists of dedicated professionals who are passionate about transforming the way people find jobs and companies hire talent. We bring together experts in technology, recruitment, and customer support to ensure that our platform delivers optimal results for every user.</p>
+        <p>Whether it’s through AI-driven job matching, customer service, or platform enhancements, we are committed to making your experience with MANTEADS the best it can be.</p>
+    </section>
+
+    <section class="how-we-help">
+        <h2>How We Help Job Seekers</h2>
+        <p>At MANTEADS, we understand the challenges job seekers face. Our platform provides the tools and resources necessary to navigate the competitive job market. From personalized job alerts to resume-building guides and interview preparation tips, we aim to equip job seekers with everything they need to succeed.</p>
+
+        <h2>How We Help Employers</h2>
+        <p>For employers, we provide an efficient and streamlined recruitment process. From posting job openings to reviewing applications and communicating with candidates, our platform is designed to save time and reduce hiring costs. We also offer advanced features like applicant tracking systems (ATS), job post analytics, and brand promotion opportunities to ensure that your job listings reach the right audience.</p>
+    </section>
+
+    <section class="contact-us">
+        <h2>Get in Touch with Us</h2>
+        <p>To learn more about how MANTEADS can help you find a job or hire top talent, please visit our <a href="#">Contact Us</a> page for more information.</p>
+    </section>
+
+    <footer>
+        <p>&copy; <strong id="Year"></strong> MANTEADS. All rights reserved.</p>
+    <script>
+      let d=new Date();
+      let year=d.getFullYear();
+      let month=d.getMonth();
+      let date=d.getDate();
+      let day=d.getDay();
+      let DaysInAWeek=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      let MonthInAYear=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let today=DaysInAWeek[day]+" "+date+" "+MonthInAYear[month]+" "+year;
+      document.getElementById('Year').textContent=today;
+    </script>
+    </footer>
+</body>
+</html>

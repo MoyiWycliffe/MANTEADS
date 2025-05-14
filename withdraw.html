@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Browse thousands of jobs and apply online easily on MANTEADS platform.">
+        <meta name="author" content="MANTEADS">
+        <meta name="keywords" content="jobs, career, apply online, job search,Fill Surveys,Complete microtasks and offerwalls.">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <title>WITHDRAW YOUR EARNINGS</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+                padding: 20px;
+            }
+            h1, h2 {
+                color: #333;
+            }
+            form {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                text-align: left;
+            }
+            label, input, button {
+                display: block;
+                margin: 10px auto;
+                width: 650px;
+                max-width: 90%;
+            }
+            input {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #218838;
+            }
+            #phoneField, #emailField {
+                display: none;
+            }
+        </style>
+        <script>
+            function toggleFields() {
+                let mpesaOption = document.getElementById("mpesa").checked;
+                let paypalOption = document.getElementById("paypal").checked;
+        
+                document.getElementById("phoneField").style.display = mpesaOption ? "block" : "none";
+                document.getElementById("emailField").style.display = paypalOption ? "block" : "none";
+            }
+        
+            function withdraw() {
+                let amount = document.getElementById("withdrawal").value.trim();
+                let method = document.querySelector('input[name="method"]:checked');
+                let phone = document.getElementById("phone").value.trim();
+                let email = document.getElementById("email").value.trim();
+                let minAmount = 15;
+        
+                if (amount === "" || isNaN(amount) || amount <= 0) {
+                    alert("Please enter a valid amount to withdraw.");
+                    return;
+                }
+        
+                amount = parseFloat(amount);
+        
+                if (amount < minAmount) {
+                    let neededMore = (minAmount - amount).toFixed(2);
+                    alert("Insufficient amount. You need to earn $" + neededMore + " more to withdraw.");
+                    return;
+                }
+        
+                if (!method) {
+                    alert("Please select a withdrawal method.");
+                    return;
+                }
+        
+                if (method.value === "mpesa" && phone === "") {
+                    alert("Please enter your phone number for M-Pesa withdrawal.");
+                    return;
+                }
+                if (method.value === "paypal" && email === "") {
+                    alert("Please enter your email for PayPal withdrawal.");
+                    return;
+                }
+        
+                window.location.href = "withdraw.php?amount=" + amount + "&method=" + method.value + "&phone=" + phone + "&email=" + email;
+            }
+        </script>
+        
+    </head>
+    <body>
+        <h1>HELLO USER,WELCOME TO WITHDRAWAL PAGE</h1>
+        <h2>WITHDRAW YOUR EARNINGS</h2>
+        <p id="demo">This is your withdrawal page.</p>
+        
+        <form action="withdraw.php" method="post">
+            <label for="withdrawal">Enter Amount to Withdraw:</label>
+            <input type="number" id="withdrawal" name="withdrawal" required>
+            
+            <label>Select Withdrawal Method:</label>
+            <input type="radio" id="mpesa" name="method" value="mpesa" onclick="toggleFields()" required>
+            <label for="mpesa">M-Pesa</label>
+            
+            <input type="radio" id="paypal" name="method" value="paypal" onclick="toggleFields()" required>
+            <label for="paypal">PayPal</label>
+            
+            <div id="phoneField">
+                <label for="phone">Enter Phone Number:</label>
+                <input type="number" id="phone" name="phone">
+            </div>
+            
+            <div id="emailField">
+                <label for="email">Enter Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <button type="button" onclick="withdraw()">Withdraw</button>
+        </form>
+    </body>
+</html>

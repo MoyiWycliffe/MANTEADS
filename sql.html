@@ -1,0 +1,1 @@
+SELECT users.userid,Transactions.amount,users.Email,CONCAT(`LastName`," ",`FirstName`) AS Names FROM transactions RIGHT JOIN users ON users.userid=transactions.userid HAVING userid=1;

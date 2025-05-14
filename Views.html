@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse thousands of jobs and apply online easily on MANTEADS platform.">
+  <meta name="author" content="MANTEADS">
+  <meta name="keywords" content="jobs, career, apply online, job search,Fill Surveys,Complete microtasks and offerwalls.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="Views.css">
+  <title>MANTEADS Views Page</title>
+</head>
+<body>
+  <h1>Welcome to MANTEADS Views Page.</h1>
+
+  <div class="Experience">
+    <h2>Leave Your Website Experience/Views/Complains Here.</h2>
+    <form action="submit_experience.php" method="POST">
+      <textarea name="experience" rows="13" placeholder="Leave Your Website Experience/Views/Complains Here....."></textarea><br>
+      <button type="submit" name="send_experience">SEND</button>
+    </form>
+  </div>
+
+  <div class="comment">
+    <h2>Leave Your Views On What To Be Done To Make Our Website Better??</h2>
+    <form action="submit_comment.php" method="POST">
+      <textarea name="comment" rows="13" placeholder="Leave Your Views On What To Be Done To Make Our Website Better??"></textarea><br>
+      <button type="submit" name="submit_comment">SUBMIT COMMENT</button>
+    </form>
+  </div>
+
+  <div class="Rate-Us">
+    <h3>Rate Us Out Off 100%</h3>
+    <label>Enter Your Value:</label>
+    <input type="number" name="rating" placeholder="Enter A Number.." value=""><br>
+    <button type="submit" name="submit_rating">Submit</button>
+  </div>
+
+  <div class="Support-Us">
+    <div class="SupportHeader">
+      <h4>Buy Me A Flower.</h4>
+      <p>Choose A Flower To Buy Me.</p>
+    </div>
+
+    <div class="flowers">
+      <div class="flower1">
+        <span>Flower 1</span><br>
+        <img src="myFlower.jpg" alt=""><br>
+        <span>Amount $1.50</span>
+        <p><input type="checkbox" id="PayPal1" name="payment_method[]" value="PayPal"> PayPal</p>
+        <p><input type="checkbox" id="Stripe1" name="payment_method[]" value="Stripe"> Stripe</p>
+        <button type="submit" name="submit_flower1">Submit</button>
+      </div>
+
+      <div class="flower2">
+        <span>Flower 2</span><br>
+        <img src="myFlower.jpg" alt=""><br>
+        <span>Amount $3.50</span>
+        <p><input type="checkbox" id="PayPal2" name="payment_method[]" value="PayPal"> PayPal</p>
+        <p><input type="checkbox" id="Stripe2" name="payment_method[]" value="Stripe"> Stripe</p>
+        <button type="submit" name="submit_flower2">Submit</button>
+      </div>
+
+      <div class="flower3">
+        <span>Flower 3</span><br>
+        <img src="myFlower.jpg" alt=""><br>
+        <span>Amount $5.50</span>
+        <p><input type="checkbox" id="PayPal3" name="payment_method[]" value="PayPal"> PayPal</p>
+        <p><input type="checkbox" id="Stripe3" name="payment_method[]" value="Stripe"> Stripe</p>
+        <button type="submit" name="submit_flower3">Submit</button>
+      </div>
+
+      <div class="flower4">
+        <span>Flower 4</span><br>
+        <img src="myFlower.jpg" alt=""><br>
+        <span>Amount $10.00</span>
+        <p><input type="checkbox" id="PayPal4" name="payment_method[]" value="PayPal"> PayPal</p>
+        <p><input type="checkbox" id="Stripe4" name="payment_method[]" value="Stripe"> Stripe</p>
+        <button type="submit" name="submit_flower4">Submit</button>
+      </div>
+
+      <div class="custom">
+        <h3>Custom</h3>
+        <p>Enter The Amount In USD ($) Of The Flower.</p>
+        <input class="input" type="number" name="custom_amount" placeholder="20"><br>
+        <p><input type="checkbox" id="PayPalCustom" name="payment_method[]" value="PayPal"> PayPal</p>
+        <p><input type="checkbox" id="StripeCustom" name="payment_method[]" value="Stripe"> Stripe</p>
+        <button type="submit" name="submit_custom_flower">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <strong id="Year"></strong> MANTEADS. All rights reserved.</p>
+    <script>
+      let d = new Date();
+      let year = d.getFullYear();
+      let month = d.getMonth();
+      let date = d.getDate();
+      let day = d.getDay();
+      let DaysInAWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let MonthInAYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      let today = DaysInAWeek[day] + " " + date + " " + MonthInAYear[month] + " " + year;
+      document.getElementById('Year').textContent = today;
+    </script>
+  </footer>
+</body>
+</html>

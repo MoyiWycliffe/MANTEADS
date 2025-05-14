@@ -1,0 +1,154 @@
+
+<style>
+footer{
+  background-color: #212121;
+  color: #f1f1f1;
+  display: block;
+  margin-bottom:0 ;
+  max-width: 100vw;
+  margin-top: 130px;
+}
+footer ul{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  margin-bottom: 0;
+  color: #f1f1f1;
+}
+footer li,footer a{
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+}
+footer p{
+  background-color: rgb(119, 206, 206);
+  color: black;
+  display: block;
+  text-align:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  margin: 0;
+}
+
+
+@media(max-width:320px){
+  footer{
+    max-width: 100vw;
+    display: block;
+  }
+  footer ul{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  footer p:hover{
+    color:rgb(119, 206, 206);
+    background-color: black;
+  }
+}
+
+@media(min-width:321px)and (max-width:400px){
+  footer{
+    max-width: 100vw;
+    display: block;
+  }
+  footer ul{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  footer p:hover{
+    color:rgb(119, 206, 206);
+    background-color: black;
+  }
+}
+@media(min-width:401px)and (max-width:530px){
+  footer{
+    max-width: 100vw;
+    display: block;
+  }
+  footer ul{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  footer p:hover{
+    color:rgb(119, 206, 206);
+    background-color: black;
+  }
+}
+@media(min-width:531px)and (max-width:630px){
+  footer{
+    max-width: 100vw;
+    display: block;
+  }
+  footer ul{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  footer p:hover{
+    color:rgb(119, 206, 206);
+    background-color: black;
+  }
+}
+@media(min-width:631px)and (max-width:800px){
+  footer{
+    max-width: 100vw;
+    display: block;
+  }
+  footer ul{
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  footer p:hover{
+    color:rgb(119, 206, 206);
+    background-color: black;
+  }
+}
+   </style>
+   <footer>
+      <ul>
+         <li><a href="Views.html">Comment</a></li>
+        <li><a href="Contact.php">Contact</a></li>
+        <li><a href="Privacy.php">Privacy Policy</a></li>
+        <li><a href="Terms-Of-Use.php">Terms of Use</a></li>
+        <li><a href="Cookies.php">Cookies Policy</a></li>
+        <li><a href="Help&Support.php">Help</a></li>
+      </ul>
+    <p>&copy; <strong id="Year"></strong> MANTEADS. All rights reserved.</p>
+    <script>
+      let d=new Date();
+      let year=d.getFullYear();
+      let month=d.getMonth();
+      let date=d.getDate();
+      let day=d.getDay();
+      let DaysInAWeek=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      let MonthInAYear=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let today=DaysInAWeek[day]+" "+date+" "+MonthInAYear[month]+" "+year;
+      document.getElementById('Year').textContent=today;
+    </script>
+   </footer>

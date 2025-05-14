@@ -1,0 +1,116 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse thousands of jobs and apply online easily on MANTEADS platform.">
+  <meta name="author" content="MANTEADS">
+  <meta name="keywords" content="jobs, career, apply online, job search,Fill Surveys,Complete microtasks and offerwalls.">
+   <link rel="icon" type="image/png" href="favicon.png">">
+    <title>User Dashboard</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f9fafa;
+        text-align: center;
+        padding: 2rem;
+        }
+        .dashboard {
+        max-width: 600px;
+        margin: auto;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+        color: #0078aa;
+        }
+        .logout {
+        margin-top: 1rem;
+        padding: 0.8rem;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+</style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Welcome, <span id="username"></span></h2>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total Earnings: $<span id="totalEarnings">0.00</span></h5>
+                        <p>From Ads: $<span id="adEarnings">0.00</span></p>
+                        <p>From Surveys: $<span id="surveyEarnings">0.00</span></p>
+                        <p>From Referrals: $<span id="referralEarnings">0.00</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Ad Statistics</h5>
+                        <p>Clicks: <span id="clicks">0</span></p>
+                        <p>Impressions: <span id="impressions">0</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Referral Program</h5>
+                        <p>Your Referral Link:</p>
+                        <input type="text" class="form-control" id="referralLink" readonly>
+
+                        <a href="withdraw.html" class="btn btn-primary mt-3">Withdraw Earnings</a>
+                        <a href="withdraw_transctions.html" class="btn btn-secondary mt-3">View Transactions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-4">Available Ads</h3>
+        <div id="adsList"></div>
+
+        <h3 class="mt-4">Available Surveys</h3>
+        <div id="surveysList"></div>
+
+    </div>
+
+    <script>
+        fetch('dashboard..php')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("username").textContent = data.username;
+                document.getElementById("totalEarnings").textContent = data.totalEarnings;
+                document.getElementById("adEarnings").textContent = data.adEarnings;
+                document.getElementById("surveyEarnings").textContent = data.surveyEarnings;
+                document.getElementById("referralEarnings").textContent = data.referralEarnings;
+                document.getElementById("clicks").textContent = data.clicks;
+                document.getElementById("impressions").textContent = data.impressions;
+                document.getElementById("referralLink").value = data.referralLink;
+
+                let adsHtml = "";
+                data.ads.forEach(ad => {
+                    adsHtml += `<p><a href="${ad.Ad_URL}" target="_blank">${ad.Title}</a></p>`;
+                });
+                document.getElementById("adsList").innerHTML = adsHtml;
+
+                let surveysHtml = "";
+                data.surveys.forEach(survey => {
+                    surveysHtml += `<p><a href="${survey.Survey_Link}" target="_blank">${survey.Title}</a></p>`;
+                });
+                document.getElementById("surveysList").innerHTML = surveysHtml;
+            });
+    </script>
+</body>
+</html>
