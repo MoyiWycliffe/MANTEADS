@@ -1,2 +1,2 @@
 # MANTEADS
-A platform for earning through ads,surveys and referrals.
+A PLARTFORM TO GET JOBS,EARN BY FILLING SURVEYS,MICROTASKS AND OFFERWALLS
